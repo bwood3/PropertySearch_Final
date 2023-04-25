@@ -24,10 +24,10 @@ public class PropertySearchController {
             @RequestParam(required = false) Double maxPrice,
             @RequestParam(required = false) Double minSqrFootage,
             @RequestParam(required = false) Double maxSqrFootage,
-            @RequestParam(required = false) Integer minBedrooms,
-            @RequestParam(required = false) Integer maxBedrooms,
-            @RequestParam(required = false) Integer minBathrooms,
-            @RequestParam(required = false) Integer maxBathrooms
+            @RequestParam(required = false, defaultValue = "0") Integer minBedrooms,
+            @RequestParam(required = false, defaultValue = "2147483647") Integer maxBedrooms,
+            @RequestParam(required = false, defaultValue = "0") Integer minBathrooms,
+            @RequestParam(required = false, defaultValue = "2147483647") Integer maxBathrooms
     ) {
         PropertySearchCriteria criteria = new PropertySearchCriteria();
         criteria.setLocation(location);
