@@ -35,48 +35,4 @@ public class PropertySearchService {
                 && (criteria.getMinBathrooms() == null || property.getBathrooms() >= criteria.getMinBathrooms())
                 && (criteria.getMaxBathrooms() == null || property.getBathrooms() <= criteria.getMaxBathrooms());
     }
-
-//    public List<Property> searchProperties(String location, Double minPrice, Double maxPrice, Double minSqrFootage, Double maxSqrFootage, Integer minBedrooms, Integer maxBedrooms, Integer minBathrooms, Integer maxBathrooms) {
-//        return propertyRepository.findAll((Specification<Property>) (root, criteriaQuery, criteriaBuilder) -> {
-//            List<Predicate> predicates = new ArrayList<>();
-//
-//            if (location != null) {
-//                predicates.add(criteriaBuilder.equal(root.get("location"), location));
-//            }
-//
-//            if (minPrice != null) {
-//                predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("price"), minPrice));
-//            }
-//
-//            if (maxPrice != null) {
-//                predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("price"), maxPrice));
-//            }
-//
-//            if (minSqrFootage != null) {
-//                predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("sqrFootage"), minSqrFootage));
-//            }
-//
-//            if (maxSqrFootage != null) {
-//                predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("sqrFootage"), maxSqrFootage));
-//            }
-//
-//            if (minBedrooms != null) {
-//                predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("bedrooms"), minBedrooms));
-//            }
-//
-//            if (maxBedrooms != null) {
-//                predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("bedrooms"), maxBedrooms));
-//            }
-//
-//            if (minBathrooms != null) {
-//                predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("bathrooms"), minBathrooms));
-//            }
-//
-//            if (maxBathrooms != null) {
-//                predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("bathrooms"), maxBathrooms));
-//            }
-//
-//            return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
-//        });
-//    }
 }
