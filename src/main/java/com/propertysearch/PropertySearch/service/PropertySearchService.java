@@ -33,6 +33,9 @@ public class PropertySearchService {
                 && (criteria.getMinBedrooms() == null || property.getBedrooms() >= criteria.getMinBedrooms())
                 && (criteria.getMaxBedrooms() == null || property.getBedrooms() <= criteria.getMaxBedrooms())
                 && (criteria.getMinBathrooms() == null || property.getBathrooms() >= criteria.getMinBathrooms())
-                && (criteria.getMaxBathrooms() == null || property.getBathrooms() <= criteria.getMaxBathrooms());
+                && (criteria.getMaxBathrooms() == null || property.getBathrooms() <= criteria.getMaxBathrooms())
+                && (criteria.getBedrooms() == null || property.getBedrooms().equals(criteria.getBedrooms()))
+                && (criteria.getBathrooms() == null || property.getBathrooms().equals(criteria.getBathrooms()));
     }
+
 }

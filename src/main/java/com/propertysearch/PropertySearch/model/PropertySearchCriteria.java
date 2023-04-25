@@ -10,6 +10,26 @@ public class PropertySearchCriteria {
     private Integer maxBedrooms;
     private Integer minBathrooms;
     private Integer maxBathrooms;
+    private Integer bedrooms;
+
+    public Integer getBedrooms() {
+        return bedrooms;
+    }
+
+    public void setBedrooms(Integer bedrooms) {
+        this.bedrooms = bedrooms;
+    }
+
+    public Integer getBathrooms() {
+        return bathrooms;
+    }
+
+    public void setBathrooms(Integer bathrooms) {
+        this.bathrooms = bathrooms;
+    }
+
+    private Integer bathrooms;
+
 
     public String getLocation() {
         return location;
