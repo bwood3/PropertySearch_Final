@@ -13,7 +13,7 @@ public class PropertyClient {
 
     @Autowired
     public PropertyClient(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.baseUrl("http://localhost:8083").build();
+        this.webClient = webClientBuilder.baseUrl("https://propertylistingfinal-production.up.railway.app").build();
     }
 
     public Flux<Property> getProperties() {
