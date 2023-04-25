@@ -15,9 +15,9 @@ public class PropertySearchController {
     @Autowired
     private PropertySearchService propertySearchService;
 
-    @CrossOrigin(origins = {"http://localhost:3000","http://localhost:3000/property-search"})
     @GetMapping("/search")
     @ResponseBody
+    @CrossOrigin(origins = {"http://localhost:3000","http://localhost:3000/property-search"})
     public List<Property> searchProperties(
             @RequestParam(required = false) String location,
             @RequestParam(required = false) Double minPrice,
