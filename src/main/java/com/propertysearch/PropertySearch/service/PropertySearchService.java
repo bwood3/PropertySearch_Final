@@ -1,6 +1,6 @@
 package com.propertysearch.PropertySearch.service;
 
-
+import java.util.Objects;
 import com.propertysearch.PropertySearch.client.PropertyClient;
 import com.propertysearch.PropertySearch.model.Property;
 import com.propertysearch.PropertySearch.model.PropertySearchCriteria;
@@ -34,8 +34,8 @@ public class PropertySearchService {
                 && (criteria.getMaxBedrooms() == null || property.getBedrooms() <= criteria.getMaxBedrooms())
                 && (criteria.getMinBathrooms() == null || property.getBathrooms() >= criteria.getMinBathrooms())
                 && (criteria.getMaxBathrooms() == null || property.getBathrooms() <= criteria.getMaxBathrooms())
-                && (criteria.getBedrooms() == null || property.getBedrooms().equals(criteria.getBedrooms()))
-                && (criteria.getBathrooms() == null || property.getBathrooms().equals(criteria.getBathrooms()));
-    }
+                && (criteria.getBedrooms() == null || Objects.equals(property.getBedrooms(), criteria.getBedrooms()))
+                && (criteria.getBathrooms() == null || Objects.equals(property.getBathrooms(), criteria.getBathrooms()));
 
+    }
 }
