@@ -17,7 +17,7 @@ public class PropertySearchController {
 
     @GetMapping("/search")
     @ResponseBody
-    @CrossOrigin(origins = {"https://propertysearchfinal-production.up.railway.app", "https://propertylistingfinal-production.up.railway.app", "http://localhost:3000"})
+    @CrossOrigin(origins = {"https://propertysearchfinal-production.up.railway.app", "https://propertylistingfinal-production.up.railway.app", "http://localhost:3000","https://realestateapp.vercel.app"})
     public List<Property> searchProperties(
             @RequestParam(required = false) String location,
             @RequestParam(required = false) Double minPrice,
