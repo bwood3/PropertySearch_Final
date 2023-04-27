@@ -1,41 +1,34 @@
 package com.propertysearch.PropertySearch.service;
 
-import java.util.Objects;
 import com.propertysearch.PropertySearch.client.PropertyClient;
 import com.propertysearch.PropertySearch.model.Property;
+import com.propertysearch.PropertySearch.model.RealEstatePropertySearchStrategy;
 import com.propertysearch.PropertySearch.model.PropertySearchCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
-// service package is used to separate the concerns
-// in a Spring Boot application. The service layer contains the business logic of
-// app, and repo layer is responsible for data access.
-// Separating these concerns makes your code more modular and maintainable.
 
 @Service
 public class PropertySearchService {
+
+    //inject
+    //used to make HTTP requests to property listing API
     private final PropertyClient propertyClient;
+    //inject
+    private final RealEstatePropertySearchStrategy searchStrategy;
+
+    //constructor injection to provide dependencies
     @Autowired
-    public PropertySearchService(PropertyClient propertyClient) {
+    public PropertySearchService(PropertyClient propertyClient, RealEstatePropertySearchStrategy searchStrategy) {
         this.propertyClient = propertyClient;
+        this.searchStrategy = searchStrategy;
     }
 
+    //search for properties that match the provided criteria using the specified search strategy
+    //flux used for nonblocking
     public Flux<Property> search(PropertySearchCriteria criteria) {
-        return propertyClient.getProperties().filter(property -> matchesCriteria(property, criteria));
-    }
-
-    private boolean matchesCriteria(Property property, PropertySearchCriteria criteria) {
-        return (criteria.getLocation() == null || property.getLocation().equalsIgnoreCase(criteria.getLocation()))
-                && (criteria.getMinPrice() == null || property.getPrice() >= criteria.getMinPrice())
-                && (criteria.getMaxPrice() == null || property.getPrice() <= criteria.getMaxPrice())
-                && (criteria.getMinSqrFootage() == null || property.getSqrFootage() >= criteria.getMinSqrFootage())
-                && (criteria.getMaxSqrFootage() == null || property.getSqrFootage() <= criteria.getMaxSqrFootage())
-                && (criteria.getMinBedrooms() == null || property.getBedrooms() >= criteria.getMinBedrooms())
-                && (criteria.getMaxBedrooms() == null || property.getBedrooms() <= criteria.getMaxBedrooms())
-                && (criteria.getMinBathrooms() == null || property.getBathrooms() >= criteria.getMinBathrooms())
-                && (criteria.getMaxBathrooms() == null || property.getBathrooms() <= criteria.getMaxBathrooms())
-                && (criteria.getBedrooms() == null || Objects.equals(property.getBedrooms(), criteria.getBedrooms()))
-                && (criteria.getBathrooms() == null || Objects.equals(property.getBathrooms(), criteria.getBathrooms()));
-
+        //Fetch properties from the PropertyClient and filter them using the search strategy's matchesCriteria method
+        //only properties that match the criteria will be included in the result
+        return propertyClient.getProperties().filter(property -> searchStrategy.matchesCriteria(property, criteria));
     }
 }
