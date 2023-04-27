@@ -1,5 +1,7 @@
 package com.propertysearch.PropertySearch.model;
 
+//this is a data class that holds search criteria -
+//- for filtering properties in the PropertySearchService.
 public class PropertySearchCriteria {
     private String location;
     private Double minPrice;

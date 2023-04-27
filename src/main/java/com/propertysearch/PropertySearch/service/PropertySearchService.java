@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
+//the main service class responsible for performing property--
+// --searches and notifying observers of search events.
 @Service
 public class PropertySearchService {
 
@@ -19,6 +21,7 @@ public class PropertySearchService {
     //used to make HTTP requests to property listing API
     private final PropertyClient propertyClient;
     //inject
+    //used to filter properties based on the user's search criteria.
     private final RealEstatePropertySearchStrategy searchStrategy;
 
     //constructor injection to provide dependencies

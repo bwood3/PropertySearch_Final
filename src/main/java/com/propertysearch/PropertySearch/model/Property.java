@@ -28,8 +28,6 @@ public class Property {
     @NotNull
     private int bathrooms;
 
-    // Getters, setters, and constructors as previously defined
-
     public Long getId() {
         return id;
     }

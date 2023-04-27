@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 
+//responsible for making HTTP requests to the property listing API and retrieving property data.
 @Component
 public class PropertyClient {
 
@@ -16,6 +17,7 @@ public class PropertyClient {
         this.webClient = webClientBuilder.baseUrl("https://propertylistingfinal-production.up.railway.app").build();
     }
 
+    //retrieves list of properties from the property listing API using a WebClient.
     public Flux<Property> getProperties() {
         return webClient.get()
                 .uri("/properties")
