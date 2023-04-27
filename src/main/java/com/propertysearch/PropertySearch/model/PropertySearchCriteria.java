@@ -102,4 +102,22 @@ public class PropertySearchCriteria {
     public void setMaxBathrooms(Integer maxBathrooms) {
         this.maxBathrooms = maxBathrooms;
     }
+
+    //added for logging
+    @Override
+    public String toString() {
+        return "PropertySearchCriteria{" +
+                "location='" + location + '\'' +
+                ", minPrice=" + minPrice +
+                ", maxPrice=" + maxPrice +
+                ", minSqrFootage=" + minSqrFootage +
+                ", maxSqrFootage=" + maxSqrFootage +
+                ", minBedrooms=" + minBedrooms +
+                ", maxBedrooms=" + maxBedrooms +
+                ", minBathrooms=" + minBathrooms +
+                ", maxBathrooms=" + maxBathrooms +
+                ", bedrooms=" + bedrooms +
+                ", bathrooms=" + bathrooms +
+                '}';
+    }
 }
